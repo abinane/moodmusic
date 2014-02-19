@@ -13,6 +13,6 @@ $('#menu-button').on('click', function() {
 })
 
 $('.home-button').on('click', function() {
-	$('#home-page').toggleClass
-
+	$('#home-page').removeClass('hidden')
+	$('#playlist').addClass('hidden')
 })

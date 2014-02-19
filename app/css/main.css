@@ -7,7 +7,7 @@ button,
 input,
 select,
 textarea {
-    color: #222;
+    color: #663399;
 }
 
 body {
@@ -62,6 +62,7 @@ textarea {
    ========================================================================== */
 #mood-slider ul {
     padding: 0;
+    color: #4E1A81;
 
 
 }
@@ -72,29 +73,15 @@ textarea {
     padding: .5em;
     list-style-type: none;
     display: inline;
+
 }
 
-h1 
+h1
 {
-    color: #663399;
-}
-button
-{
-    color: #663399;
-}
+    font-family: "times new roman", serif;
+    
 
-input {
-    color: #663399;
 }
-select {
-    color: #663399;
-}
-textarea {
-    color: #663399;
-}
-
-
-
 
 
 
