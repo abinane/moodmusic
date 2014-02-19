@@ -67,7 +67,6 @@ textarea {
 }
 
 
-
 #mood-slider li {
     border: 1px black solid;
     padding: .5em;
@@ -75,11 +74,24 @@ textarea {
     display: inline;
 }
 
+h1 
+{
+    color: #663399;
+}
+button
+{
+    color: #663399;
+}
 
-
-
-
-
+input {
+    color: #663399;
+}
+select {
+    color: #663399;
+}
+textarea {
+    color: #663399;
+}
 
 
 
