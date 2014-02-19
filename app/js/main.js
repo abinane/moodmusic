@@ -1,18 +1,24 @@
-$('#playlist-button').on('click', function() {
-	$('#playlist').toggleClass('hidden')
+function switchScreens() {
 	$('#home-page').toggleClass('hidden')
-
-})
-$('.back-button').on('click', function() {
 	$('#playlist').toggleClass('hidden')
-	$('#home-page').toggleClass('hidden')
+	
+}
 
-})
-$('#menu-button').on('click', function() {
+function toggleMenu() {
 	$('#menu').toggleClass('hidden')
-})
+}
 
-$('.home-button').on('click', function() {
+function goHome () {
 	$('#home-page').removeClass('hidden')
 	$('#playlist').addClass('hidden')
-})
+}
+
+$('.back-button, #playlist-button')
+	.on('click', switchScreens) 
+
+$('#menu-button').on('click', toggleMenu)
+
+$('.home-button').on('click', goHome)
+
+
+
