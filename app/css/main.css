@@ -102,13 +102,15 @@ h1
     height: 100%; 
     border: 1px solid black;
     box-sizing: border-box;
-    
+    transition: background 700ms;
+
 }
 
 #mood-slider .active {
     background: #663399;
     color: white;
     font-weight: bold;
+    transition: background 200ms;
 }
 
 
