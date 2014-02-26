@@ -24,6 +24,12 @@ $('#mood-slider').sly({
 	horizontal: 1,
 	itemNav: 'forceCentered',
 	scrollBy: 1,
+	activateMiddle: 1,
+	touchDragging: 1,
+	mouseDragging: 1,
+	activateOn: 'click',
+	smart: true,
+	speed: 50
 })
 
 

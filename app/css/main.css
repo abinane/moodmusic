@@ -101,6 +101,8 @@ h1
     width: 120px; 
     height: 100%; 
     border: 1px solid black;
+    box-sizing: border-box;
+    
 }
 
 #mood-slider .active {
