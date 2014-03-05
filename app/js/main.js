@@ -32,11 +32,13 @@ var sliderOptions = {
 	speed: 50
 };
 
-$('.slider-container').sly(sliderOptions);
+var sliderElementOne = $(".slider-container").first()
+var sliderElementTwo = $(".slider-container").last()
+var sliderOne = new Sly( sliderElementOne, sliderOptions );
+var sliderTwo = new Sly( sliderElementTwo, sliderOptions );
 
-
-
-
+sliderOne.init()
+sliderTwo.init()
 
 
 
