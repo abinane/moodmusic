@@ -7,12 +7,13 @@ button,
 input,
 select,
 textarea {
-    color: #222;
+    color: #663399;
 }
 
 body {
     font-size: 1em;
     line-height: 1.4;
+    padding: 0 1em;
 }
 
 ::-moz-selection {
@@ -59,18 +60,58 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+/*.slider-container ul {
+    padding: 0;
+    color: #4E1A81;
+
+}
 
 
+.slider-container li {
+    border: 1px black solid;
+    padding: .5em;
+    list-style-type: none;
+    display: inline;
 
+}*/
 
+h1
+{
+    font-family: "times new roman", serif;
+    
+}
 
+.slider-container { 
+    width: 100%; 
+    height: 30px; 
+    padding: 0; 
+}
 
+.slider-container ul { 
+    margin: 0; 
+    padding: 0; 
+    height: 100%; 
+    list-style: none; 
+    text-align: center;
+}
 
+.slider-container ul li { 
+    float: left; 
+    padding: 5px; 
+    width: 120px; 
+    height: 100%; 
+    border: 1px solid black;
+    box-sizing: border-box;
+    transition: background 700ms;
 
+}
 
-
-
-
+.slider-container .active {
+    background: #663399;
+    color: white;
+    font-weight: bold;
+    transition: background 200ms;
+}
 
 
 
