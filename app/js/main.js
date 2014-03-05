@@ -82,7 +82,7 @@ var sliderOptions = {
 var callbackMap = {
 	active: function(eventName, itemIndex) {
 		console.log(moodTags[itemIndex]);
-	} ,
+	}
 
 }
 
@@ -94,7 +94,15 @@ var sliderTwo = new Sly( sliderElementTwo, sliderOptions, callbackMap );
 sliderOne.init()
 sliderTwo.init()
 
+function play() {
+	var moodOne = moodTags[sliderOne.rel.activeItem];
+	var moodTwo = moodTags[sliderTwo.rel.activeItem];
+	$('#playlist ul')
+		.html('You\'ve selected ' + moodOne + ' and ' + moodTwo);
+	switchScreens()
+} 
 
+$('#play-button').on('click', play)
 
 
 
