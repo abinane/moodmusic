@@ -60,14 +60,14 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-/*#mood-slider ul {
+/*.slider-container ul {
     padding: 0;
     color: #4E1A81;
 
 }
 
 
-#mood-slider li {
+.slider-container li {
     border: 1px black solid;
     padding: .5em;
     list-style-type: none;
@@ -81,13 +81,13 @@ h1
     
 }
 
-#mood-slider { 
+.slider-container { 
     width: 100%; 
     height: 30px; 
     padding: 0; 
 }
 
-#mood-slider ul { 
+.slider-container ul { 
     margin: 0; 
     padding: 0; 
     height: 100%; 
@@ -95,7 +95,7 @@ h1
     text-align: center;
 }
 
-#mood-slider ul li { 
+.slider-container ul li { 
     float: left; 
     padding: 5px; 
     width: 120px; 
@@ -106,39 +106,7 @@ h1
 
 }
 
-#mood-slider .active {
-    background: #663399;
-    color: white;
-    font-weight: bold;
-    transition: background 200ms;
-}
-
-#mood-slider-two { 
-    width: 100%; 
-    height: 30px; 
-    padding: 0; 
-}
-
-#mood-slider-two ul { 
-    margin: 0; 
-    padding: 0; 
-    height: 100%; 
-    list-style: none; 
-    text-align: center;
-}
-
-#mood-slider-two ul li { 
-    float: left; 
-    padding: 5px; 
-    width: 120px; 
-    height: 100%; 
-    border: 1px solid black;
-    box-sizing: border-box;
-    transition: background 700ms;
-
-}
-
-#mood-slider-two .active {
+.slider-container .active {
     background: #663399;
     color: white;
     font-weight: bold;

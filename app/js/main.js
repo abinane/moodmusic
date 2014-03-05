@@ -20,7 +20,7 @@ $('#menu-button').on('click', toggleMenu)
 
 $('.home-button').on('click', goHome)
 
-$('#mood-slider').sly({
+$('.slider-container').sly({
 	horizontal: 1,
 	itemNav: 'forceCentered',
 	scrollBy: 1,
@@ -32,17 +32,6 @@ $('#mood-slider').sly({
 	speed: 50
 })
 
-$('#mood-slider-two').sly({
-	horizontal: 1,
-	itemNav: 'forceCentered',
-	scrollBy: 1,
-	activateMiddle: 1,
-	touchDragging: 1,
-	mouseDragging: 1,
-	activateOn: 'click',
-	smart: true,
-	speed: 50
-})
 
 
 
