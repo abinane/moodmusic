@@ -32,13 +32,21 @@ var sliderOptions = {
 	speed: 50
 };
 
+var callbackMap = {
+	active: function(eventName, itemIndex) {
+		console.log(itemIndex);
+	} ,
+
+}
+
 var sliderElementOne = $(".slider-container").first()
 var sliderElementTwo = $(".slider-container").last()
-var sliderOne = new Sly( sliderElementOne, sliderOptions );
-var sliderTwo = new Sly( sliderElementTwo, sliderOptions );
+var sliderOne = new Sly( sliderElementOne, sliderOptions, callbackMap );
+var sliderTwo = new Sly( sliderElementTwo, sliderOptions, callbackMap );
 
 sliderOne.init()
 sliderTwo.init()
+
 
 
 
