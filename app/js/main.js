@@ -1,3 +1,45 @@
+var moodTags = [
+	'appreciative',
+	'break up',
+	'chilling',
+	'clubbing',
+	'dance',
+	'doubtful',
+	'down south',
+	'dreamy',
+	'driving',
+	'empowered',
+	'excited',
+	'gansta',
+	'getting ready',
+	'hanging out',
+	'happy',
+	'in love',
+	'independent',
+	'insipred',
+	'invincible',
+	'lonely',
+	'lost in jamaica',
+	'love',
+	'melancholy',
+	'missing someone',
+	'motivated',
+	'optimistic',
+	'powerful',
+	'racy',
+	'rastaman',
+	'regretful',
+	'road trip',
+	'romantic',
+	'sad',
+	'sexy',
+	'successful',
+	'summer',
+	'sweet',
+	'thug',
+	'wishful'
+];
+
 function switchScreens() {
 	$('#home-page').toggleClass('hidden')
 	$('#playlist').toggleClass('hidden')
@@ -39,8 +81,8 @@ var callbackMap = {
 
 }
 
-var sliderElementOne = $(".slider-container").first()
-var sliderElementTwo = $(".slider-container").last()
+var sliderElementOne = $('.slider-container').first()
+var sliderElementTwo = $('.slider-container').last()
 var sliderOne = new Sly( sliderElementOne, sliderOptions, callbackMap );
 var sliderTwo = new Sly( sliderElementTwo, sliderOptions, callbackMap );
 
