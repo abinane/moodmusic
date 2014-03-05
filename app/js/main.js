@@ -32,13 +32,18 @@ var moodTags = [
 	'road trip',
 	'romantic',
 	'sad',
-	'sexy',
 	'successful',
 	'summer',
 	'sweet',
 	'thug',
 	'wishful'
 ];
+
+$('.slider-container').each(function( i, el ) {
+	var $el = $( el );
+	$el.find('ul')
+		.html('<li>'+moodTags.join('</li> <li>')+'</li>');
+}) 
 
 function switchScreens() {
 	$('#home-page').toggleClass('hidden')
@@ -76,7 +81,7 @@ var sliderOptions = {
 
 var callbackMap = {
 	active: function(eventName, itemIndex) {
-		console.log(itemIndex);
+		console.log(moodTags[itemIndex]);
 	} ,
 
 }
