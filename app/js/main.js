@@ -14,13 +14,13 @@ function goHome () {
 }
 
 $('.back-button, #playlist-button')
-	.on('click', switchScreens) 
+	.on('click', switchScreens);
 
-$('#menu-button').on('click', toggleMenu)
+$('#menu-button').on('click', toggleMenu);
 
-$('.home-button').on('click', goHome)
+$('.home-button').on('click', goHome);
 
-$('.slider-container').sly({
+var sliderOptions = {
 	horizontal: 1,
 	itemNav: 'forceCentered',
 	scrollBy: 1,
@@ -30,7 +30,12 @@ $('.slider-container').sly({
 	activateOn: 'click',
 	smart: true,
 	speed: 50
-})
+};
+
+$('.slider-container').sly(sliderOptions);
+
+
+
 
 
 
