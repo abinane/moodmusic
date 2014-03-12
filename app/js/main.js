@@ -105,7 +105,20 @@ function play() {
 $('#play-button').on('click', play)
 
 
-
+// var ds = new Miso.Dataset({
+//   key : "0Auivztrde1nqdGY2SGU3NGNRbTRLYXk5cG0yTEg0SGc",
+//   worksheet : "1",
+//   importer: Miso.Dataset.Importers.GoogleSpreadsheet,
+//   parser : Miso.Dataset.Parsers.GoogleSpreadsheet
+// });
+// ds.fetch({
+//   success : function() {
+//     console.log(ds.columnNames())
+//   },
+//   error : function() {
+//     // your error callback here!
+//   }
+// });
 
 // // Trying out sly.js
 // $('#mood-slider').sly({
