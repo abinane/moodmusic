@@ -1,4 +1,5 @@
 var moodTags = []; 
+var songs = [];
 
 function switchScreens() {
 	$('#home-page').toggleClass('hidden')
@@ -66,12 +67,45 @@ var sliderTwo = new Sly( sliderElementTwo, sliderOptions, callbackMap );
 function play() {
 	var moodOne = moodTags[sliderOne.rel.activeItem];
 	var moodTwo = moodTags[sliderTwo.rel.activeItem];
-	$('#playlist ul')
-		.html('You\'ve selected ' + moodOne + ' and ' + moodTwo);
-	switchScreens()
+	// $('#playlist ul')
+	// 	.html('You\'ve selected ' + moodOne + ' and ' + moodTwo);
+	// switchScreens()
+
+
 } 
 
 $('#play-button').on('click', play)
+
+var addSong = function(song){
+	var tags = song['Mood Tag'];
+	// console.log(tags)
+	tags = splitTags(tags);
+	// console.log(tags)
+	tags = _.map (tags, formatTag);
+	// console.log(tags, '\n')
+	song.tags = tags;
+	songs.push(song);
+
+}
+
+
+
+var initialize = function() {
+	songData.each(addSong)
+	console.log(songs)
+   	moodTags = _.chain(songs)
+   		.pluck('tags')
+		.flatten()
+		.unique ()
+		.value();
+	$('.slider-container').each(function( i, el ) {
+		var $el = $( el );
+		$el.find('ul')
+			.html('<li>'+moodTags.join('</li> <li>')+'</li>');
+	})
+	sliderOne.init()
+	sliderTwo.init()
+  }
 
 
 
@@ -82,23 +116,7 @@ var songData = new Miso.Dataset({
   parser : Miso.Dataset.Parsers.GoogleSpreadsheet
 });
 songData.fetch({
-  success : function() {
-   	moodTags = _.chain( songData.column('Mood Tag').data)
-		.map (splitTags)
-		.flatten()
-		.map (formatTag)
-		.unique ()
-		.value();
-	$('.slider-container').each(function( i, el ) {
-		var $el = $( el );
-		$el.find('ul')
-			.html('<li>'+moodTags.join('</li> <li>')+'</li>');
-	})
-	sliderOne.init()
-	sliderTwo.init()
-
-	// initialize!
-  },
+  success : initialize,
   error : function() {
     // your error callback here!
   }
