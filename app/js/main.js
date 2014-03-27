@@ -72,8 +72,10 @@ function play() {
 	// switchScreens()
 	var matchingSongToTag = function(song) {
 		var hasMoodOne =  _.contains(song.tags, moodOne);
-		return hasMoodOne;
+		var hasMoodTwo = _.contains(song.tags, moodTwo);
+		return hasMoodOne && hasMoodTwo;
 	};
+
 
 	var matchingSongs = _.filter(songs, matchingSongToTag)
 	console.log(matchingSongs)
@@ -98,7 +100,7 @@ var addSong = function(song){
 
 var initialize = function() {
 	songData.each(addSong)
-	console.log(songs)
+	// console.log(songs)
    	moodTags = _.chain(songs)
    		.pluck('tags')
 		.flatten()
