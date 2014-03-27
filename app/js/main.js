@@ -67,20 +67,24 @@ var sliderTwo = new Sly( sliderElementTwo, sliderOptions, callbackMap );
 function play() {
 	var moodOne = moodTags[sliderOne.rel.activeItem];
 	var moodTwo = moodTags[sliderTwo.rel.activeItem];
-	// $('#playlist ul')
-	// 	.html('You\'ve selected ' + moodOne + ' and ' + moodTwo);
-	// switchScreens()
 	var matchingSongToTag = function(song) {
 		var hasMoodOne =  _.contains(song.tags, moodOne);
 		var hasMoodTwo = _.contains(song.tags, moodTwo);
 		return hasMoodOne && hasMoodTwo;
 	};
 
-
 	var matchingSongs = _.filter(songs, matchingSongToTag)
 	console.log(matchingSongs)
+	var songListItems = _.map(matchingSongs, renderSong) 
+	songListItems = songListItems.join(' ');
+	$('#playlist ul') .html(songListItems)
+	switchScreens ()
 
-} 
+}
+
+var renderSong = function (song) {
+	return "<li>" + song.Artist + " - " + song.Song + "</li>" 
+}
 
 $('#play-button').on('click', play)
 
@@ -93,9 +97,7 @@ var addSong = function(song){
 	// console.log(tags, '\n')
 	song.tags = tags;
 	songs.push(song);
-
 }
-
 
 
 var initialize = function() {
