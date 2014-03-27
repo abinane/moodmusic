@@ -70,7 +70,13 @@ function play() {
 	// $('#playlist ul')
 	// 	.html('You\'ve selected ' + moodOne + ' and ' + moodTwo);
 	// switchScreens()
+	var matchingSongToTag = function(song) {
+		var hasMoodOne =  _.contains(song.tags, moodOne);
+		return hasMoodOne;
+	};
 
+	var matchingSongs = _.filter(songs, matchingSongToTag)
+	console.log(matchingSongs)
 
 } 
 
