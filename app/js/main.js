@@ -107,6 +107,7 @@ var initialize = function() {
    		.pluck('tags')
 		.flatten()
 		.unique ()
+		.without('')
 		.value();
 	$('.slider-container').each(function( i, el ) {
 		var $el = $( el );
