@@ -7,7 +7,7 @@ button,
 input,
 select,
 textarea {
-    color: #663399;
+    color: teal;
 }
 
 body {
@@ -17,12 +17,12 @@ body {
 }
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: teal;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: teal;
     text-shadow: none;
 }
 
@@ -121,7 +121,7 @@ header div {
     padding: 14px; 
     width: 120px; 
     height: 100%; 
-    border: 1px solid black;
+    border: 1px teal;
     box-sizing: border-box;
     transition: background 700ms;
 
@@ -129,7 +129,7 @@ header div {
 
 
 .slider-container .active {
-    background: #663399;
+    background: teal;
     color: white;
     font-weight: bold;
     transition: background 200ms;
