@@ -101,6 +101,25 @@ header div {
     margin: 20px 0px;
 }
 
+.home-button, .menu-button {
+    padding: 2px;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+}
+
+.home-button img {
+    width: 43px;
+    height: 33px;
+}
+
+.menu-button img {
+    width: 43px;
+    height: 33px;
+}
+
 .slider-container { 
     width: 100%;
     height: 50px;
@@ -140,10 +159,12 @@ header div {
     margin: auto;
     width: 50px;
     height: 50px;
+    border: none;
+    background: none;
     }
 
 #play-button img { 
-    width: 30px;
+    width: 35px;
 
 }
 
