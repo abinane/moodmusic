@@ -77,11 +77,11 @@ textarea {
 
 }*/
 
-h1
+/*h1
 {
     font-family: "times new roman", serif;
     
-}
+}*/
 
 body
 {
@@ -91,7 +91,6 @@ body
 
 header ul {
     padding: 0;
-    text-align: center;
     list-style-type: none;
 
 }
@@ -101,7 +100,8 @@ header div {
     margin: 20px 0px;
 }
 
-.home-button, .menu-button {
+.home-button, 
+.menu-button {
     padding: 2px;
     margin: auto;
     width: 50px;
@@ -118,6 +118,25 @@ header div {
 .menu-button img {
     width: 43px;
     height: 33px;
+}
+
+.share-button, 
+.suggestions-button, 
+.settings-button, 
+.about-button {
+    padding: 0;
+    margin: auto;
+    width: 90px;
+    height: 21px;
+    border: none;
+    background: none;
+}
+
+.share-button, 
+.suggestions-button, 
+.settings-button, 
+.about-button img {
+
 }
 
 .slider-container { 
@@ -164,6 +183,20 @@ header div {
     }
 
 #play-button img { 
+    width: 35px;
+
+}
+
+#playlist-button {
+    padding: 2px;
+    margin: auto;
+    width: 150px;
+    height: 50px;
+    border: none;
+    background: none;
+    }
+
+#playlist-button img { 
     width: 35px;
 
 }

@@ -19,7 +19,7 @@ function goHome () {
 $('.back-button, #playlist-button')
 	.on('click', switchScreens);
 
-$('#menu-button').on('click', toggleMenu);
+$('.menu-button').on('click', toggleMenu);
 
 $('.home-button').on('click', goHome);
 
