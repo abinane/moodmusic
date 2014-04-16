@@ -15,6 +15,7 @@ function toggleMenu() {
 function goHome () {
 	$('#home-page').removeClass('hidden')
 	$('#playlist').addClass('hidden')
+	$('#menu').addClass('hidden')
 }
 
 $('.back-button, #playlist-button')
@@ -75,13 +76,24 @@ function play() {
 	};
 
 	var matchingSongs = _.filter(songs, matchingSongToTag)
-	console.log(matchingSongs)
+	matchingSongs = _.shuffle(matchingSongs)
+	console.log(matchingSongs[0])
 	var songListItems = _.map(matchingSongs, renderSong) 
 	songListItems = songListItems.join(' ');
 	$('#playlist ul') .html(songListItems)
-	switchScreens ()
-
+ 	
+ 	if (matchingSongs[0]) {
+ 		$('.current.song').html(matchingSongs[0].Song)
+ 		$('.current.artist').html(matchingSongs[0].Artist)
+ 		$('#playlist-button').removeClass('hidden')
+ 	}
+ 	else {
+ 		$('.current.song').html("No match found")
+ 		$('.current.artist').html("")
+ 		$('#playlist-button').addClass('hidden')
+ 	}
 }
+
 
 var renderSong = function (song) {
 	return "<li>" + song.Artist + " - " + song.Song + "</li>" 
