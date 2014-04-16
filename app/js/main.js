@@ -4,6 +4,7 @@ var songs = [];
 function switchScreens() {
 	$('#home-page').toggleClass('hidden')
 	$('#playlist').toggleClass('hidden')
+	$('#menu').addClass('hidden')
 	
 }
 
