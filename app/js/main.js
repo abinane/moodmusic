@@ -72,7 +72,7 @@ function play() {
 
 	var matchingSongs = _.filter(songs, matchingSongToTag)
 	matchingSongs = _.shuffle(matchingSongs)
-	**randomize shuffle**
+	// randomize shuffle
 	console.log(matchingSongs[0])
 	var songListItems = _.map(matchingSongs, renderSong) 
 	songListItems = songListItems.join(' ');
