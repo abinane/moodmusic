@@ -21,25 +21,24 @@
    
     <body>
 		<header>
-			<h1> moodmusic </h1>
+			<h1 data-name="home"> moodmusic </h1>
 			<div>
-			<button class="home-button"> 
+			<button class="home-button" data-name="home"> 
 				<img src="images/buttons/homebutton.jpg"> 
 			</button>
 			<button class="menu-button"> 
 				<img src="images/buttons/menubutton.jpg">
 			</button>
 			<ul id="menu" class="hidden"> 
-				<li> <button class="share-button"> share </button></li>
-				<li> <button class="suggestions-button"> suggestions </button></li>
-				<li> <button class="settings-button"> settings </button></li>
-				<li> <button class="about-button"> about </button></li>
+				<li> <button class="share-button" data-name="share"> share </button></li>
+				<li> <button class="suggestions-button" data-name="suggestions"> suggestions </button></li>
+				<li> <button class="about-button" data-name="about"> about </button></li>
 			</ul>
 		</div>
 
 		</header>
 
-		<section id="home-page">
+		<section class="page" id="home">
 
 			<div class="sliders">
 				<div class="slider-container">
@@ -59,19 +58,32 @@
 				<p class="current artist"> </p>
 				<p class="current song"> </p>
 				
-				<button id="playlist-button" class="hidden">upcoming</button>
+				<button id="playlist-button" class="hidden" data-name="playlist">upcoming</button>
 
 			</div>
 
 
 		</section>
 		
-		<section id="playlist" class="hidden">
+		<section class="page hidden" id="playlist">
 
 			<ul>
 				
 			</ul>
 
+		</section>
+
+		<section class="page hidden" id="share">
+			<p> share page </p>
+			
+		</section>
+
+		<section class="page hidden" id="suggestions">
+			<p> sug page </p>
+		</section>
+
+		<section class="page hidden" id="about">
+			<p> about page </p>
 		</section>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>

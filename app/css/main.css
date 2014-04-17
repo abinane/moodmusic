@@ -180,11 +180,12 @@ header div {
 
 #play-button {
     padding: 2px;
-    margin: auto;
     width: 50px;
     height: 50px;
     border: none;
     background: none;
+    margin-right: 21px;
+    float: left;
     }
 
 #play-button img { 

@@ -1,29 +1,24 @@
 var moodTags = []; 
 var songs = [];
 
-function switchScreens() {
-	$('#home-page').toggleClass('hidden')
-	$('#playlist').toggleClass('hidden')
+
+function switchScreens(page) {
+	console.log(page)
+	$('.page').addClass("hidden")
+	$('#' + page).removeClass('hidden')
 	$('#menu').addClass('hidden')
-	
 }
 
 function toggleMenu() {
 	$('#menu').toggleClass('hidden')
 }
 
-function goHome () {
-	$('#home-page').removeClass('hidden')
-	$('#playlist').addClass('hidden')
-	$('#menu').addClass('hidden')
-}
-
-$('.back-button, #playlist-button')
-	.on('click', switchScreens);
+$('[data-name]').on('click', function(evt){
+	var page = $(this).data('name')
+	switchScreens(page)
+})
 
 $('.menu-button').on('click', toggleMenu);
-
-$('.home-button').on('click', goHome);
 
 var splitTags = function(moodObject) {
 	var moods 
@@ -77,6 +72,7 @@ function play() {
 
 	var matchingSongs = _.filter(songs, matchingSongToTag)
 	matchingSongs = _.shuffle(matchingSongs)
+	**randomize shuffle**
 	console.log(matchingSongs[0])
 	var songListItems = _.map(matchingSongs, renderSong) 
 	songListItems = songListItems.join(' ');
