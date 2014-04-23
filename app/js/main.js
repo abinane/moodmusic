@@ -91,9 +91,19 @@ function play() {
  	}
 }
 
+var getYoutube = function(song) {
+	var link = song.Artist + " " + song.Song
+    link = encodeURIComponent(link)
+    link = link.replace(/%20/g, '+').replace(/'/g, '%27')
+    return "https://www.youtube.com/results?search_query=" + link
+}
 
 var renderSong = function (song) {
-	return "<li>" + song.Artist + " - " + song.Song + "</li>" 
+	return "<li><a href='" + getYoutube(song) + "'> " + song.Artist + " - " + song.Song + "</a> </li>" 
+/*
+<li>The Ting Tings - That's Not My Name</li>
+<a href=" "> </a>
+*/
 }
 
 $('#play-button').on('click', play)
@@ -129,7 +139,6 @@ var initialize = function() {
 	sliderOne.init()
 	sliderTwo.init()
   }
-
 
 
 var songData = new Miso.Dataset({
