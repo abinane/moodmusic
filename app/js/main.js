@@ -72,8 +72,9 @@ function play() {
 
 	var matchingSongs = _.filter(songs, matchingSongToTag)
 	matchingSongs = _.shuffle(matchingSongs)
-	// randomize shuffle
+	matchingSongs = _.first(matchingSongs, 10)
 	console.log(matchingSongs[0])
+
 	var songListItems = _.map(matchingSongs, renderSong) 
 	songListItems = songListItems.join(' ');
 	$('#playlist ul') .html(songListItems)
@@ -117,6 +118,8 @@ var initialize = function() {
 		.flatten()
 		.unique ()
 		.without('')
+		.without('untagged')
+		.shuffle()
 		.value();
 	$('.slider-container').each(function( i, el ) {
 		var $el = $( el );
