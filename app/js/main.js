@@ -48,13 +48,6 @@ MoodSlider.prototype.set = function(moods) {
 	this.render();
 };
 
-
-
-// var sliderElementOne = $('.slider-container').first()
-// var sliderElementTwo = $('.slider-container').last()
-// var sliderOne = new Sly( sliderElementOne, sliderOptions, callbackMap );
-// var sliderTwo = new Sly( sliderElementTwo, sliderOptions, callbackMap );
-
 function switchScreens(page) {
 	console.log(page)
 	$('.page').addClass("hidden")
@@ -90,15 +83,13 @@ var formatTag = function(moodTag) {
 } 
 
 
-var sliderElementOne = $('.slider-container').first()
-var sliderElementTwo = $('.slider-container').last()
-var sliderOne = new Sly( sliderElementOne, sliderOptions, callbackMap );
-var sliderTwo = new Sly( sliderElementTwo, sliderOptions, callbackMap );
+var sliderOne = new MoodSlider($('.slider-container').first())
+var sliderTwo = new MoodSlider($('.slider-container').last())
 
 
 function play() {
-	var moodOne = moodTags[sliderOne.rel.activeItem];
-	var moodTwo = moodTags[sliderTwo.rel.activeItem];
+	var moodOne = moodTags[sliderOne.sly.rel.activeItem];
+	var moodTwo = moodTags[sliderTwo.sly.rel.activeItem];
 	var matchingSongToTag = function(song) {
 		var hasMoodOne =  _.contains(song.tags, moodOne);
 		var hasMoodTwo = _.contains(song.tags, moodTwo);
@@ -165,13 +156,9 @@ var initialize = function() {
 		.without('untagged')
 		.shuffle()
 		.value();
-	$('.slider-container').each(function( i, el ) {
-		var $el = $( el );
-		$el.find('ul')
-			.html('<li>'+moodTags.join('</li> <li>')+'</li>');
-	})
-	sliderOne.init()
-	sliderTwo.init()
+
+	sliderOne.set(moodTags)
+	sliderTwo.set(moodTags)
   }
 
 
