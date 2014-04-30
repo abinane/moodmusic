@@ -154,8 +154,9 @@ var initialize = function() {
 		.unique ()
 		.without('')
 		.without('untagged')
-		.shuffle()
-		.value();
+		.value()
+		.sort();
+	
 
 	sliderOne.set(moodTags)
 	sliderTwo.set(moodTags)
