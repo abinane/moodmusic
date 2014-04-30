@@ -1,6 +1,59 @@
 var moodTags = []; 
 var songs = [];
 
+var sliderOptions = {
+	horizontal: 1,
+	itemNav: 'forceCentered',
+	scrollBy: 1,
+	activateMiddle: 1,
+	touchDragging: 1,
+	mouseDragging: 1,
+	activateOn: 'click',
+	smart: true,
+	speed: 50
+};
+
+// $('.slider-container').each(function( i, el ) {
+// 		var $el = $( el );
+// 		$el.find('ul')
+// 			.html('<li>'+moodTags.join('</li> <li>')+'</li>');
+// 	})
+// 	sliderOne.init()
+// 	sliderTwo.init()
+
+var callbackMap = {
+	active: function(eventName, itemIndex) {
+		console.log(moodTags[itemIndex]);
+	}
+};
+
+var MoodSlider = function(sliderelement) {
+	this.el = sliderelement;
+	this.init();
+};
+
+MoodSlider.prototype.init = function() {
+	this.sly = new Sly(this.el, sliderOptions, callbackMap)
+};
+
+MoodSlider.prototype.render = function() {
+	this.el.find('ul')
+			.html('<li>'+this.shuffledMoods.join('</li> <li>')+'</li>');
+	this.sly.init();
+};
+
+MoodSlider.prototype.set = function(moods) {
+	this.moods = moods;
+	this.shuffledMoods = _.shuffle(moods);
+	this.render();
+};
+
+
+
+// var sliderElementOne = $('.slider-container').first()
+// var sliderElementTwo = $('.slider-container').last()
+// var sliderOne = new Sly( sliderElementOne, sliderOptions, callbackMap );
+// var sliderTwo = new Sly( sliderElementTwo, sliderOptions, callbackMap );
 
 function switchScreens(page) {
 	console.log(page)
@@ -36,24 +89,6 @@ var formatTag = function(moodTag) {
 	return moodTag.trim().toLowerCase()
 } 
 
-var sliderOptions = {
-	horizontal: 1,
-	itemNav: 'forceCentered',
-	scrollBy: 1,
-	activateMiddle: 1,
-	touchDragging: 1,
-	mouseDragging: 1,
-	activateOn: 'click',
-	smart: true,
-	speed: 50
-};
-
-var callbackMap = {
-	active: function(eventName, itemIndex) {
-		console.log(moodTags[itemIndex]);
-	}
-
-}
 
 var sliderElementOne = $('.slider-container').first()
 var sliderElementTwo = $('.slider-container').last()
@@ -118,7 +153,6 @@ var addSong = function(song){
 	song.tags = tags;
 	songs.push(song);
 }
-
 
 var initialize = function() {
 	songData.each(addSong)
