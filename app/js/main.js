@@ -62,22 +62,13 @@ var validMoods = function(mood1, mood2) {
 		var hasMoodOne = _.contains(song.tags, mood1);
 		var hasMoodTwo = _.contains(song.tags, mood2);
 
-		if ( hasMoodOne && hasMoodTwo ) {
-			// console.group('Song');
-			console.log(hasMoodOne, hasMoodTwo, song.tags);
-			// console.groupEnd('Song');
-		}
-
 		return hasMoodOne && hasMoodTwo;
 	});
-
-	// console.log(mood1, mood2, matchingSongs.length > 0, matchingSongs);
 
 	return matchingSongs.length > 0;
 }
 
 function switchScreens(page) {
-	console.log(page)
 	$('.page').addClass("hidden")
 	$('#' + page).removeClass('hidden')
 	$('#menu').addClass('hidden')
@@ -128,7 +119,6 @@ function play() {
 	var matchingSongs = _.filter(songs, matchingSongToTag)
 	matchingSongs = _.shuffle(matchingSongs)
 	matchingSongs = _.first(matchingSongs, 10)
-	console.log(matchingSongs[0])
 
 	var songListItems = _.map(matchingSongs, renderSong) 
 	songListItems = songListItems.join(' ');
@@ -161,18 +151,18 @@ $('#play-button').on('click', play)
 
 var addSong = function(song){
 	var tags = song['Mood Tag'];
-	// console.log(tags)
+
 	tags = splitTags(tags);
-	// console.log(tags)
+
 	tags = _.map (tags, formatTag);
-	// console.log(tags, '\n')
+
 	song.tags = tags;
 	songs.push(song);
 }
 
 var initialize = function() {
 	songData.each(addSong)
-	// console.log(songs)
+
    	moodTags = _.chain(songs)
    		.pluck('tags')
 		.flatten()
