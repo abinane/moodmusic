@@ -172,9 +172,15 @@ var initialize = function() {
 		.value()
 		.sort();
 	
-
 	sliderOne.set(moodTags)
 	sliderTwo.set(moodTags)
+	sliderOne.el.on('activate', function( evt, data ) {
+  		sliderTwo.update(data.mood)
+  	});
+
+  	sliderTwo.el.on('activate', function( evt, data ) {
+  		sliderOne.update(data.mood);
+	});
   }
 
 
