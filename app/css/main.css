@@ -156,6 +156,11 @@ header div {
 
 }
 
+#suggestions iframe {
+    width: 100%;
+
+}
+
 .slider-container { 
     width: 100%;
     height: 50px;
