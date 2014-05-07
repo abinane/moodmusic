@@ -161,21 +161,31 @@ header div {
 
 .slider-container ul li { 
     float: left; 
-    padding: 14px; 
+    padding: 12px 14px; 
     width: 120px; 
     height: 100%; 
-    border: 1px teal;
+    border: 3px white;
     box-sizing: border-box;
-    transition: background 700ms;
-
+    transition: background color 700ms;
 }
-
 
 .slider-container .active {
     background: teal;
     color: white;
     font-weight: bold;
-    transition: background 200ms;
+    transition: background color 200ms;
+}
+
+.slider-container .inactive {
+    color: white;
+    background: #b2afaf;
+    transition: color background 200ms;
+}
+
+.slider-container .active.inactive {
+    color: white;
+    background: #686868;
+    transition: color background 200ms;
 }
 
 #play-button {

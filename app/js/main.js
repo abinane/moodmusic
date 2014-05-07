@@ -13,27 +13,32 @@ var sliderOptions = {
 	speed: 50
 };
 
-// $('.slider-container').each(function( i, el ) {
-// 		var $el = $( el );
-// 		$el.find('ul')
-// 			.html('<li>'+moodTags.join('</li> <li>')+'</li>');
-// 	})
-// 	sliderOne.init()
-// 	sliderTwo.init()
-
-var callbackMap = {
-	active: function(eventName, itemIndex) {
-		console.log(moodTags[itemIndex]);
-	}
-};
-
 var MoodSlider = function(sliderelement) {
 	this.el = sliderelement;
 	this.init();
 };
 
 MoodSlider.prototype.init = function() {
-	this.sly = new Sly(this.el, sliderOptions, callbackMap)
+	var callbackMap = {};
+	callbackMap.active = function(eventName, itemIndex) {
+		this.el.trigger('activate', {
+			index: itemIndex,
+			mood: this.shuffledMoods[itemIndex]
+		});
+	}.bind(this);
+	this.sly = new Sly(this.el, sliderOptions, callbackMap);
+};
+
+MoodSlider.prototype.update = function(mood) {
+	this.el.find('li').each(function(index, el) {
+		var $el = $(el);
+		var active = validMoods(mood, $el.text());
+		if ( active ) {
+			$el.removeClass('inactive');
+		} else {
+			$el.addClass('inactive');
+		}
+	});
 };
 
 MoodSlider.prototype.render = function() {
@@ -48,8 +53,22 @@ MoodSlider.prototype.set = function(moods) {
 	this.render();
 };
 
+MoodSlider.prototype.getActiveMood = function() {
+	return this.shuffledMoods[ this.sly.rel.activeItem ];
+};
+
+var validMoods = function(mood1, mood2) {
+	var matchingSongs = _.filter(songs, function(song) { 
+		var hasMoodOne = _.contains(song.tags, mood1);
+		var hasMoodTwo = _.contains(song.tags, mood2);
+
+		return hasMoodOne && hasMoodTwo;
+	});
+
+	return matchingSongs.length > 0;
+}
+
 function switchScreens(page) {
-	console.log(page)
 	$('.page').addClass("hidden")
 	$('#' + page).removeClass('hidden')
 	$('#menu').addClass('hidden')
@@ -88,8 +107,9 @@ var sliderTwo = new MoodSlider($('.slider-container').last())
 
 
 function play() {
-	var moodOne = moodTags[sliderOne.sly.rel.activeItem];
-	var moodTwo = moodTags[sliderTwo.sly.rel.activeItem];
+	var moodOne = sliderOne.getActiveMood();
+	var moodTwo = sliderTwo.getActiveMood();
+
 	var matchingSongToTag = function(song) {
 		var hasMoodOne =  _.contains(song.tags, moodOne);
 		var hasMoodTwo = _.contains(song.tags, moodTwo);
@@ -99,7 +119,6 @@ function play() {
 	var matchingSongs = _.filter(songs, matchingSongToTag)
 	matchingSongs = _.shuffle(matchingSongs)
 	matchingSongs = _.first(matchingSongs, 10)
-	console.log(matchingSongs[0])
 
 	var songListItems = _.map(matchingSongs, renderSong) 
 	songListItems = songListItems.join(' ');
@@ -126,28 +145,24 @@ var getYoutube = function(song) {
 
 var renderSong = function (song) {
 	return "<li><a href='" + getYoutube(song) + "'> " + song.Artist + " - " + song.Song + "</a> </li>" 
-/*
-<li>The Ting Tings - That's Not My Name</li>
-<a href=" "> </a>
-*/
 }
 
 $('#play-button').on('click', play)
 
 var addSong = function(song){
 	var tags = song['Mood Tag'];
-	// console.log(tags)
+
 	tags = splitTags(tags);
-	// console.log(tags)
+
 	tags = _.map (tags, formatTag);
-	// console.log(tags, '\n')
+
 	song.tags = tags;
 	songs.push(song);
 }
 
 var initialize = function() {
 	songData.each(addSong)
-	// console.log(songs)
+
    	moodTags = _.chain(songs)
    		.pluck('tags')
 		.flatten()
